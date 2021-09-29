@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import store from './app/store'
 import App from './App';
+import { Provider } from 'react-redux';
+/*
+1.Reduxストアをアプリケーションのエントリポイントファルにインポートする
+2.ルートReactコンポーネントを<Provider>コンポーネントでラップする
+*/
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/*
+    ReactプロジェクトへのReduxの追加
+    Storeコンポーネントを作成する
+    */}
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
